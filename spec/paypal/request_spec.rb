@@ -132,5 +132,9 @@ describe PayPal::Recurring::Request do
     it "normalizes locale" do
       subject.normalize_params(:locale => :us).should == {:LOCALECODE => "US"}
     end
+
+    it "normalizes total billing cycles" do
+      subject.normalize_params(:total_billing_cycles => 1).should == {:TOTALBILLINGCYCLES => 1}
+    end
   end
 end

@@ -31,6 +31,7 @@ module PayPal
       attr_accessor :trial_length
       attr_accessor :trial_period
       attr_accessor :trial_amount
+      attr_accessor :total_billing_cycles
 
       def initialize(options = {})
         options.each {|name, value| send("#{name}=", value)}
@@ -196,7 +197,8 @@ module PayPal
           :item_category,
           :item_name,
           :item_amount,
-          :item_quantity
+          :item_quantity,
+          :total_billing_cycles
         )
         request.run(:create_profile, params)
       end
